@@ -10,7 +10,7 @@ const getCountries = async ()=>{
     const orderResults = await results.data.map(coun => {
         const country = {
             id: coun.cca3,
-            name: coun.name.official,
+            name: coun.name.common,
             flagimg: coun.flags[0],
             continent: coun.region,
             capital:  coun.capital != null ? coun.capital[0] : "No data",
@@ -68,7 +68,7 @@ router.get('/countries', async (req,res) =>{
                     through: {attributes:[]}
                 }]
             })
-            console.log(country)
+            // console.log(country)
             if (country.length){
                 return res.status(200).json(country)
             }else{
@@ -95,7 +95,7 @@ router.get('/countries/:idPais', async (req,res)=>{
                 through: {attributes:[]}
             }]
         })
-        if(country){
+        if(country.length){
             return res.status(200).json(country)
         }else{
             return res.status(404).send('Country not Found :c')

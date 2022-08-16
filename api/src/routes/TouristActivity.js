@@ -32,7 +32,7 @@ router.post('/touristActivity', async(req,res)=>{
 
 router.get('/touristActivity', async (req,res)=>{
     const activities = await TouristActivity.findAll()
-    if(activities){
+    if(activities.length){
         res.status(200).json(activities)
     }else{
         res.status(404).json('Non-existent activities')
