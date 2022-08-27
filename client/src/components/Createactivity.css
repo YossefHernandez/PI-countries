@@ -1,0 +1,140 @@
+.select-country {
+    border-radius: 15px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 400px;
+    height: 40px;
+}    .select-country select {
+        font-family: 'Arial';
+        display: inline-block;
+        width: 150px;
+        cursor: pointer;
+        padding: 6px 13px;
+        outline: 0;
+        border: 1px dashed #000000;
+        border-radius: 17px;
+        background: #ff9674;
+        color: #000000;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        text-align: center;
+        justify-content: space-between
+    }
+        .select-country select::-ms-expand {
+            display: none;
+        }
+        .select-country select:hover,
+        .select-country select:focus {
+            color: #000000;
+            background: #ff5722;
+        }
+        .select-country select:disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+.select-country_arrow {
+    position: absolute;
+    top: 14px;
+    right: 15px;
+    pointer-events: none;
+    border-style: solid;
+    border-width: 8px 5px 0px 5px;
+    border-color: #7b7b7b transparent transparent transparent;
+}
+.select-country select:hover ~ .select_arrow,
+.select-country select:focus ~ .select_arrow {
+    border-top-color: #000000;
+}
+.select-country select:disabled ~ .select_arrow {
+    border-top-color: #cccccc;
+}
+.principal-create-div{
+    background-color: #2b2a33f1;
+    margin: 0px 50px 0px 50px;
+    height: 920px;
+    box-shadow: 0px 0px 18px 7px #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.css-input {
+    padding: 3px;
+    font-size: 13px;
+    border-width: 2px;
+    border-color: #000000;
+    background-color: #ff7e56;
+    color: #000000;
+    border-style: solid;
+    border-radius: 9px;
+    box-shadow: 2px 4px 7px rgba(66,66,66,.75);
+    text-shadow: 0px 0px 0px rgba(66,66,66,.75);
+    height: 30px;
+    width: 170px;
+    align-items: center;
+    display: flex;
+    margin-left: 110px;
+}
+.css-input:focus {
+    outline:none;
+}
+.button-div{
+    margin-bottom: 800px;
+    margin-right: 50px;
+}
+.Back-home-2 {
+	background-color:#ff5622;
+	border-radius:28px;
+	border:1px solid #000000;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Georgia;
+	font-size:17px;
+	font-weight:bold;
+	font-style:italic;
+	padding:13px 6px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #312866;
+    width: 100px;
+}
+.Back-home-2:hover {
+	background-color:#bd3e18;
+}
+.Back-home-2:active {
+	position:relative;
+	top:1px;
+}
+.tourist-title{
+    margin-right: 100px;
+    background-color: #ff5722;
+    height: 150px;
+    width: 400px;
+    border-radius: 25px;
+    box-shadow: 3px 3px 23px 1px #000 inset;
+    text-align: center;
+    color: black;
+    text-shadow: 2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff,
+                 1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
+    
+}
+.select-options{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    border-radius: 25px;
+}
+.input-name{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.allinput{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ff5722;
+    border-radius: 25px;
+    box-shadow: 3px 3px 23px 1px #000 inset;
+    outline: 4px dashed #000;
+}

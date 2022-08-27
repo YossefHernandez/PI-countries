@@ -1,6 +1,6 @@
 
 body{
-    background-image: url("https://www.worldatlas.com/r/w2000-h1125-q90/upload/84/81/bd/shutterstock-1104283151.jpg");
+    background-image: url("https://www.worldatlas.com/r/w2000-h1125-q90/upload/84/81/bd/shutterstock-1104283151.jpg") ;
 }
 
 .container{
@@ -12,6 +12,7 @@ body{
     align-items: center;
     height: 200px;
     width: 500px;
+    margin: 300px auto;
 }
 
 .title{

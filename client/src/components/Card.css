@@ -1,0 +1,39 @@
+.card-div{
+    background-color:  #ff5722;
+    height: 270px;
+    width: 350px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    border-radius: 25px;
+    box-shadow: 3px 3px 23px 1px #000 inset;
+    outline: 4px dashed #000;
+}
+.card-div:hover{
+    background-color: #b94c2b98;
+}
+
+img{
+    margin-top: 20px;
+    height: 150px;
+    width: 250px;
+    border-radius: 10px;
+}
+.data{
+    background-color: #222831;
+    height: 70px;
+    border-radius: 0 0 10px 20px;
+    margin-top: 26px;
+}
+.name{
+    text-align: center;
+    color: black;
+    text-shadow: 2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff,
+             1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
+}
+.continent{
+    text-align: center;
+    color: black;
+    text-shadow: 4px 3px 10px #000000;
+    text-shadow: 2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff,
+             1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
+}
