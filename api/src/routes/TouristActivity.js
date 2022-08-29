@@ -23,8 +23,12 @@ router.post('/touristActivity', async(req,res)=>{
         const getId = await TouristActivity.findAll({
             where: {name: name}
         })
-        const country = await Country.findByPk(countryId);
-        await country.addTouristActivity(getId[0].dataValues.id);
+
+        for (let i = 0; i < countryId.length; i++) {
+            const country = await Country.findByPk(countryId[i]);
+            await country.addTouristActivity(getId[0].dataValues.id)
+        }
+        
     } catch (e) {
         console.log(e)
     }

@@ -23,6 +23,13 @@ function rootReducer (state = initialState, action){
                     ...state,
                     countries: continentFilter
             }
+            case "FILTER_BY_ACTIVITY":
+                const allc = state.allCountries
+                const activitiesFilter = action.payload === "All activities" ? allc : allc.filter(e => e.TouristActivities[0].name === action.payload)
+                return{
+                    ...state,
+                    countries: activitiesFilter
+            }
         case "ORDER_BY_NAME":
                 let sortedArr = action.payload === 'Aasc' ?
                 state.countries.sort(function (a, b){

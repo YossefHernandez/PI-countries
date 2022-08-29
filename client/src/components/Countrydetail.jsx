@@ -35,7 +35,7 @@ return(
                 <div class="secundary-text">
                 <p class="sub">Subregion: {country[0].subregion}</p>
                 <p class="sub">Area: {country[0].area}km²</p>
-                <p class="sub">Population: {country[0].population}</p>
+                <p class="sub">Population: {country[0].population} persons</p>
                 <p class="sub">Tourist Activities: {country[0].TouristActivities.map((el)=> el.name + (' '))}</p>
                 </div>
             </div> : <p class="not-found">Country not found</p>

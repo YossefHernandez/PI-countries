@@ -1,7 +1,7 @@
 import React from "react";
 import {useState, useEffect} from "react"
 import { useDispatch, useSelector } from "react-redux";
-import {getCountries, filterCountriesContinent, orderByName, orderByPopulation} from '../actions/actions'
+import {getCountries, filterCountriesContinent, orderByName, orderByPopulation, getActivities, filterCountriesActivity} from '../actions/actions'
 import { Link } from "react-router-dom";
 import Card from "./Card";
 import Paginado from "./Paginado";
@@ -11,6 +11,7 @@ import "./Homepage.css"
 export default function Home(){
     const dispatch = useDispatch()
     const allCountries= useSelector((state)=> state.countries)
+    const allActivities = useSelector((state)=>state.activities)
     const [currentPage, setCurrentPage] = useState(1)
     const [countriesPerPage, setCountriesPerPage] = useState(9)
     const indexOfLastCountry = currentPage * countriesPerPage
@@ -18,7 +19,6 @@ export default function Home(){
     const currentCountries = allCountries.slice(indexOfFirstCountry, indexOfLastCountry)
     const [orden, setOrden]= useState('')
     const [ordenByPop, setOrdenbyPop]= useState('')
-    
     if(currentPage === 1 && countriesPerPage === 10) {
         setCountriesPerPage(9) 
       } else if(currentPage !== 1 && countriesPerPage === 9) {
@@ -29,10 +29,12 @@ export default function Home(){
         setCurrentPage(pageNumber)
     }
 
-
-
     useEffect(()=>{
         dispatch(getCountries())
+    },[dispatch])
+
+    useEffect(()=>{
+        dispatch(getActivities())
     },[dispatch])
 
     function handleClick(e){
@@ -42,6 +44,9 @@ export default function Home(){
 
     function handleFilterContinent(e){
         dispatch(filterCountriesContinent(e.target.value))
+    }
+    function handleFilterActivity(e){
+        dispatch(filterCountriesActivity(e.target.value))
     }
     function handleSort(e){
         e.preventDefault();
@@ -97,8 +102,13 @@ export default function Home(){
             <div className="filter-text">
             <p>Filter by tourist activity</p>
             </div>
-            <select>
-                <option value="All">XD</option>
+            <select onChange={e=>handleFilterActivity(e)}>
+                <option key="All activities" value="All activities">All activities</option>
+            {allActivities.map((e) => {
+                                return(
+                                <option key={e.name} value={e.name}>{e.name}</option>
+                                )
+                            })}
             </select>
             </div>
             <Paginado

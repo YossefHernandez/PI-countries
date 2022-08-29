@@ -28,6 +28,12 @@ export function orderByPopulation(payload){
         payload
     }
 }
+export function filterCountriesActivity(payload){
+    return{
+        type: "FILTER_BY_ACTIVITY",
+        payload
+    }
+}
 export function getCountriesName(name){
     return async function (dispatch){
         try {

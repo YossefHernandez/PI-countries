@@ -65,7 +65,7 @@ export default function CreateActivity(){
     function handleSelect(e){
         setInput({
             ...input,
-            countryId:[...input.countryId, e.target.value]
+            countryId:[...new Set([...input.countryId, e.target.value])],
         })
         console.log(input)
     }
@@ -167,7 +167,7 @@ export default function CreateActivity(){
                         <select onChange={(e)=> handleSelect(e)}>
                             {sortCountries.map((e) => {
                                 return(
-                                <option value={e.id}>{e.name}</option>
+                                <option key={e.id} value={e.id}>{e.name}</option>
                                 )
                             })}
                         </select>
