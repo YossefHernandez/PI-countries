@@ -164,3 +164,25 @@
 	position:relative;
 	top:1px;
 }
+
+.buttonReady {
+	background-color:#ff5622;
+	border-radius:12px;
+	border:1px solid #000000;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Georgia;
+	font-size:17px;
+	padding:7px 10px;
+	text-decoration:none;
+}
+.buttonReady:hover {
+	background-color:#b51212;
+}
+.buttonReady:active {
+	position:relative;
+	top:1px;
+}
+
+     

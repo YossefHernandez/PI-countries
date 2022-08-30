@@ -56,11 +56,27 @@ export function getActivities(){
     }
 }
 
-export function postActivity(payload){
-    return async function(dispatch){
-        const response = await axios.post("http://localhost:3001/touristActivity", payload)
-        console.log(response)
-        return response
+// export function postActivity(payload){
+//     return async function(dispatch){
+//         const response = await axios.post("http://localhost:3001/touristActivity", payload)
+//         console.log(response)
+//         return response
+//     }
+// }
+
+export const postActivity = (payload)=>{
+    return(dispatch)=>{
+        axios.post(`http://localhost:3001/touristActivity`, payload)
+        .then(response => response.data)
+        .then((element)=>{
+            dispatch({
+                type: "POST_ACTIVITY",
+                payload: element
+            })
+        })
+        .catch((error)=>{
+            console.log(error)
+        })
     }
 }
 

@@ -53,7 +53,7 @@ export default function CreateActivity(){
         season:"",
         countryId:[]
     })
-
+    
     useEffect(()=>{
         dispatch(getCountries())
     }, [])
@@ -114,7 +114,7 @@ export default function CreateActivity(){
     
     function buttonReady(){
         if (Object.entries(errors).length === 0){
-            return <button type="submit" >Ready!</button>
+            return <button type="submit" class="buttonReady">Ready!</button>
         }else{
             return <p>Please complete the form</p>}
     }
@@ -198,6 +198,9 @@ export default function CreateActivity(){
                                 )
                             })}
                         </select>
+                        {errors.countryId &&(
+                                <p>{errors.countryId}</p>
+                            )}
                         
                         {buttonReady()}
                         
