@@ -28,7 +28,7 @@ router.post('/touristActivity', async(req,res)=>{
             const country = await Country.findByPk(countryId[i]);
             await country.addTouristActivity(getId[0].dataValues.id)
         }
-        
+
     } catch (e) {
         console.log(e)
     }
@@ -42,4 +42,19 @@ router.get('/touristActivity', async (req,res)=>{
         res.status(404).json('Non-existent activities')
     }
 })
+
+// router.delete('/touristActivity/:name', async (req, res)=>{
+//     const {name} = req.params
+    
+//     try {
+//         TouristActivity.destroy({
+//             where: {
+//                 name: name
+//             }
+//         })
+//         res.send("Actividad borrada :D")
+//     } catch (e) {
+//         console.log(e)
+//     }
+// })
 module.exports = router

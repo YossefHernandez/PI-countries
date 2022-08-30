@@ -138,3 +138,29 @@
     box-shadow: 3px 3px 23px 1px #000 inset;
     outline: 4px dashed #000;
 }
+.country-selected{
+    background-color: #22283188;
+    box-shadow: 3px 3px 23px 1px #000 inset;
+    width: 70px;
+    outline: 4px dashed;
+    margin-right: 12px;
+}
+.deleteButton {
+	background-color:#ff0000;
+	border-radius:4px;
+	border:1px solid #000000;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:14px;
+	padding:6px 8px;
+	text-decoration:none;
+}
+.deleteButton:hover {
+	background-color:#b51212;
+}
+.deleteButton:active {
+	position:relative;
+	top:1px;
+}

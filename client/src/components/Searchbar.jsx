@@ -23,7 +23,7 @@ export default function SearchBar(){
             <input
             class="searchbar-input"
             type='text'
-            placeholder="Search country..."
+            placeholder="Search country...(with capital letter)"
             onChange={(e)=> handleInputChange(e)}
             />
             <button type="submit" onClick={(e)=> handleSubmit(e)} class="search-button">Search</button>

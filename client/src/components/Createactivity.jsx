@@ -5,23 +5,31 @@ import { postActivity, getCountries } from "../actions/actions";
 import { useDispatch, useSelector } from "react-redux";
 import "./Createactivity.css"
 function validate(input){
-    let errors = {}
+    var errors = {}
+    const onlyLetters = new RegExp('^[A-Z]+$', 'i');
+    const onlyNumbers= new RegExp("^[0-9]+$")
+    let seasons = ['Spring', 'Summer', 'Autumn', 'Winter']
     if(!input.name){
         errors.name = "Please enter the name of the activity"
+    }else if(!onlyLetters.test(input.name)){
+        errors.name = "Please enter name whitout numbers or signs"
+    }else if(!onlyNumbers.test(input.difficulty)){
+        errors.difficulty = "Please only enter numbers" 
     }else if(input.difficulty > 5 || input.difficulty <= 0){
         errors.difficulty = "Please enter the difficulty between 1 and 5"
+    }else if(!onlyNumbers.test(input.duration)){
+        errors.duration = "Please only enter numbers"
     }else if(input.duration > 24 || input.duration <= 0){
         errors.duration = "Please enter the activity time between 1 to 24 hours"
+    }else if(!onlyLetters.test(input.season)){
+        errors.season = "Please enter season"
     }else if(!input.season){
         errors.season = "Please enter any season (Spring, Summer, Autumn, Winter)"
+    }else if(seasons.includes(input.season)=== false){
+        errors.season = "Please enter a correct season (Spring, Summer, Autumn, Winter)"
     }
-    return errors
+    return errors   
 }
-
-
-
-
-
 export default function CreateActivity(){
     const dispatch = useDispatch()
     const countries = useSelector((state)=> state.countries)
@@ -92,6 +100,24 @@ export default function CreateActivity(){
         })
     }
 
+    function capitalizarPrimeraLetra() {
+        if(input.season){
+            const palabra = input.season;
+            var mayuscula = palabra.substring(0,1).toUpperCase();
+            if (palabra.length > 0) {
+              var minuscula = palabra.substring(1).toLowerCase();
+            }
+            input.season = mayuscula.concat(minuscula);
+          
+          }
+    }
+    
+    function buttonReady(){
+        if (Object.entries(errors).length === 0){
+            return <button type="submit" >Ready!</button>
+        }else{
+            return <p>Please complete the form</p>}
+    }
     return(
         <div class="principal-create-div">
             <div class="button-div">
@@ -158,6 +184,7 @@ export default function CreateActivity(){
                             name="season"
                             onChange={e => handleChange(e)}
                             class="css-input"
+                            onkeyup={capitalizarPrimeraLetra()}
                             />
                             {errors.season &&(
                                 <p>{errors.season}</p>
@@ -172,19 +199,20 @@ export default function CreateActivity(){
                             })}
                         </select>
                         
-                        <button type="submit" >Ready!</button>
+                        {buttonReady()}
+                        
                     </div>
                 </div>
             </form>
             </div>
-            </div>
             {input.countryId.map(el =>
-                <div>
+                <div class="country-selected">
                     <p>
                         {el}
                     </p>
-                    <button onClick={()=>handleDelete(el)}>X</button>
+                    <button onClick={()=>handleDelete(el)} class="deleteButton">X</button>
                 </div>)}
+            </div>
         </div>
     )
 

@@ -25,7 +25,7 @@ function rootReducer (state = initialState, action){
             }
             case "FILTER_BY_ACTIVITY":
                 const allc = state.allCountries
-                const activitiesFilter = action.payload === "All activities" ? allc : allc.filter(e => e.TouristActivities[0].name === action.payload)
+                const activitiesFilter = action.payload === "All activities" ? allc : allc.filter(e => e.TouristActivities.map((e)=>e.name).includes(action.payload))
                 return{
                     ...state,
                     countries: activitiesFilter
